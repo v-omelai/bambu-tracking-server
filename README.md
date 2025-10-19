@@ -2,7 +2,7 @@
 
 A ready-to-go solution for integrating **Bambu Lab** printers with **[Spoolman](https://github.com/Donkie/Spoolman)** and **Postgres** using **Docker**.
 
-This setup also uses the **[Bambu AMS Spoolman Filament Status connector](https://github.com/Rdiger-36/bambulab-ams-spoolman-filamentstatus)** to monitor filament usage and **AMS** events.
+This setup also uses the **[Bambu AMS Spoolman Filament Status](https://github.com/Rdiger-36/bambulab-ams-spoolman-filamentstatus)** to monitor filament usage and **AMS** events.
 
 ## Setup
 
