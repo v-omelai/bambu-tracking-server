@@ -1,0 +1,47 @@
+services:
+  postgres:
+    image: postgres:18.0
+    container_name: postgres
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - database:/var/lib/postgresql/18/docker
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d ${POSTGRES_DB} -U ${POSTGRES_USER}" ]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  spoolman:
+    image: ghcr.io/donkie/spoolman:0.22
+    container_name: spoolman
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./spoolman:/home/app/.local/share/spoolman
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+  spoolman-bambu:
+    image: ghcr.io/rdiger-36/bambulab-ams-spoolman-filamentstatus:1.0.9
+    container_name: spoolman-bambu
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./spoolman-bambu/config/printers:/app/printers
+      - ./spoolman-bambu/config/logs:/app/logs
+    ports:
+      - "4000:4000"
+    depends_on:
+      spoolman:
+        condition: service_started
+
+volumes:
+  database:
