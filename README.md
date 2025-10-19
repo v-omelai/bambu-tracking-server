@@ -4,6 +4,8 @@ A ready-to-go solution for integrating **Bambu Lab** printers with **[Spoolman](
 
 This setup also uses the **[Bambu AMS Spoolman Filament Status](https://github.com/Rdiger-36/bambulab-ams-spoolman-filamentstatus)** to monitor filament usage and **AMS** events.
 
+![Overview](images/overview.png)
+
 ## Setup
 
 - Create a `.env` file based on `.env.example` and fill in the required credentials
