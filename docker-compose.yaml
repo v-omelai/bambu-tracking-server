@@ -28,15 +28,15 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-  spoolman-bambu:
+  spoolman-status:
     image: ghcr.io/rdiger-36/bambulab-ams-spoolman-filamentstatus:1.0.9
-    container_name: spoolman-bambu
+    container_name: spoolman-status
     restart: unless-stopped
     env_file:
       - .env
     volumes:
-      - ./spoolman-bambu/config/printers:/app/printers
-      - ./spoolman-bambu/config/logs:/app/logs
+      - ./spoolman-status/config/printers:/app/printers
+      - ./spoolman-status/config/logs:/app/logs
     ports:
       - "4000:4000"
     depends_on:

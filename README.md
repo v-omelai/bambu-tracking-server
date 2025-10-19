@@ -7,7 +7,7 @@ This setup also uses the **[Bambu AMS Spoolman Filament Status](https://github.c
 ## Setup
 
 - Create a `.env` file based on `.env.example` and fill in the required credentials
-- Edit the `printers.json` file in `spoolman-bambu/config/printers/` and fill in the required printer details
+- Edit the `printers.json` file in `spoolman-status/config/printers/` and fill in the required printer details
 - Run the configuration using `docker compose up -d`
 
 ## Access
